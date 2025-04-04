@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Wish</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background: url('https://www.transparenttextures.com/patterns/glitter-pattern.png'),
+                        linear-gradient(135deg, #ffccff, #ff99cc, #ff6699);
+            color: white;
+            transition: background 1s ease-in-out;
+        }
+
+        .balloons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            animation: float 3s ease-in forwards;
+            z-index: 999;
+        }
+
+        @keyframes float {
+            0% {
+                bottom: -100px;
+                transform: scale(0.5) rotate(0deg);
+            }
+
+            100% {
+                bottom: 100%;
+                transform: scale(1) rotate(360deg);
+            }
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            max-width: 800px;
+            margin: 20px auto;
+            display: none;
+        }
+
+        .item {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 200px;
+            overflow: hidden;
+        }
+
+        .item img {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.2s;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .item:hover img {
+            transform: scale(1.1);
+        }
+
+        .message {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .item:hover .message {
+            opacity: 1;
+        }
+
+        .link {
+            font-size: 2em;
+            font-weight: bold;
+            color: #ff6699;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="link" id="home-link">To u gal gal🎂🎉</h1>
+    <div class="balloons" id="balloons"></div>
+    <p id="intro-text" style="display:none;">As you embark on another year of your life, know that you are truly one of a kind.
+      Life is an unpredictable journey, filled with highs and lows, but your strength, courage, and determination will see you through every challenge.
+      This year, welcome every opportunity, pursue your dreams fearlessly, and treasure each moment that comes your way.
+      Surround yourself with love, laughter, and happiness, because you deserve nothing but the best.
+      May this year bring you immense joy, success, and the realization of all your hopes.
+      Here's to celebrating you and everything that makes you extraordinary—cheers to 21!</p>
+
+    <div class="gallery" id="gallery">
+        <div class="item">
+            <img src="WhatsApp Image 2025-04-02 at 21.04.50.jpeg" alt="Birthday Girl 1">
+            <div class="message">"Believe in yourself, and you will be unstoppable."</div>
+        </div>
+        <div class="item">
+            <img src="WhatsApp Image 2025-04-02 at 21.04.45.jpeg" alt="Birthday Girl 2">
+            <div class="message">"The best way to predict the future is to create it."</div>
+        </div>
+        <div class="item">
+            <img src="WhatsApp Image 2025-04-02 at 21.04.47.jpeg" alt="Birthday Girl 3">
+            <div class="message">"Every day is a new beginning. Take a deep breath and start again."</div>
+        </div>
+        <div class="item">
+            <img src="WhatsApp Image 2025-04-02 at 21.04.48.jpeg" alt="Birthday Girl 4">
+            <div class="message">"Do what you love, and you’ll never work a day in your life."</div>
+        </div>
+        <div class="item">
+            <img src="WhatsApp Image 2025-04-02 at 21.04.51.jpeg" alt="Birthday Girl 5">
+            <div class="message">"Your only limit is your mind. Dream big, work hard, and stay focused."</div>
+        </div>
+        <div class="item">
+            <img src="WhatsApp Image 2025-04-02 at 21.04.44.jpeg" alt="Birthday Girl 6">
+            <div class="message">"Happiness is not something ready-made. It comes from your own actions."</div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('home-link').addEventListener('click', function () {
+            showBalloons();
+            document.body.style.background = '#6a1b9a'; // Purple background after clicking
+            setTimeout(function () {
+                document.getElementById('intro-text').style.display = 'block';
+                document.getElementById('gallery').style.display = 'grid';
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            }, 3000); // Wait for 3 seconds before showing the gallery
+        });
+
+        function showBalloons() {
+            const balloonsContainer = document.getElementById('balloons');
+            balloonsContainer.style.display = 'block';
+            const balloonCount = 10;
+            for (let i = 0; i < balloonCount; i++) {
+                const balloon = document.createElement('div');
+                balloon.classList.add('balloon');
+                balloon.style.left = `${Math.random() * 100}%`;
+                balloon.style.animationDelay = `${Math.random() * 2}s`; // Delay each balloon for a random effect
+                balloonsContainer.appendChild(balloon);
+            }
+        }
+    </script>
+</body>
+
+</html>
