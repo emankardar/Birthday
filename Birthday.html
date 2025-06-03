@@ -12,27 +12,34 @@
             margin: 0;
             padding: 20px;
             background: url('https://www.transparenttextures.com/patterns/glitter-pattern.png'),
-                        linear-gradient(135deg, #ffccff, #ff99cc, #ff6699);
+                linear-gradient(135deg, #ffccff, #ff99cc, #ff6699);
             color: white;
             transition: background 1s ease-in-out;
-        }
-
-        .balloons {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: none;
-            pointer-events: none;
-            z-index: 999;
         }
 
         .balloon {
             position: absolute;
             bottom: -100px;
+            width: 50px;
+            height: 70px;
+            background: radial-gradient(circle at 50% 30%, #ff4081, #e91e63);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            box-shadow: inset -5px -10px rgba(0, 0, 0, 0.2);
             animation: float 3s ease-in forwards;
             z-index: 999;
+        }
+
+        /* Add a little “knot” at the bottom of the balloon */
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 10px;
+            background: #e91e63;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
         }
 
         @keyframes float {
@@ -115,12 +122,15 @@
 <body>
     <h1 class="link" id="home-link">To u gal gal🎂🎉</h1>
     <div class="balloons" id="balloons"></div>
-    <p id="intro-text" style="display:none;">As you embark on another year of your life, know that you are truly one of a kind.
-      Life is an unpredictable journey, filled with highs and lows, but your strength, courage, and determination will see you through every challenge.
-      This year, welcome every opportunity, pursue your dreams fearlessly, and treasure each moment that comes your way.
-      Surround yourself with love, laughter, and happiness, because you deserve nothing but the best.
-      May this year bring you immense joy, success, and the realization of all your hopes.
-      Here's to celebrating you and everything that makes you extraordinary—cheers to 21!</p>
+    <p id="intro-text" style="display:none;">As you embark on another year of your life, know that you are truly one of
+        a kind.
+        Life is an unpredictable journey, filled with highs and lows, but your strength, courage, and determination will
+        see you through every challenge.
+        This year, welcome every opportunity, pursue your dreams fearlessly, and treasure each moment that comes your
+        way.
+        Surround yourself with love, laughter, and happiness, because you deserve nothing but the best.
+        May this year bring you immense joy, success, and the realization of all your hopes.
+        Here's to celebrating you and everything that makes you extraordinary—cheers to 21!</p>
 
     <div class="gallery" id="gallery">
         <div class="item">
